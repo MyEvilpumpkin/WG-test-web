@@ -37,6 +37,8 @@
             $('.file-loader-button').addClass('file-loader-button-small');
             let tables = JSON.parse(data)
             let html = '';
+            if (tables.length === 0)
+              html = 'Не обнаружено текстовых файлов!';
             tables.forEach(function (table) {
               html += '<table><caption>' + table[0] + '</caption>';
               html += '<tr><th>word</th><th>tf</th><th>idf</th></tr>';

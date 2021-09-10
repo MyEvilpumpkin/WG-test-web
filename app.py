@@ -17,6 +17,9 @@ def main():
         files_data = []
         all_unique_words = set()
         for file in files:
+            # Skip non text file
+            if file.mimetype.find('text') == -1:
+                continue
             # Transform file to string
             file_data = [file.filename]
             text = io.StringIO(file.read().decode('UTF-8')).read()
@@ -85,4 +88,4 @@ def main():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')

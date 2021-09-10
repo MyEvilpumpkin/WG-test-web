@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  border-left: 4px solid #e11931;
+  text-align: center;
+  overflow: hidden;
+}
+
+.file-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100%;
+  width: 100%;
+  color: white;
+  background: linear-gradient(rgba(169,15,26,0) 60%, rgba(169,15,26,1) 100%), linear-gradient(rgba(34,34,34,1), rgba(34,34,34,1));
+}
+
+.file-loader-small {
+  height: 20%;
+  transition: height 0.5s ease-out;
+}
+
+.file-loader-inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.file-loader-text {
+  font: 500 6vw 'Roboto', sans-serif;
+  margin-bottom: 12vh;
+}
+
+.file-loader-text-small {
+  font: 500 32px 'Roboto', sans-serif;
+  margin-bottom: 2vh;
+}
+
+.file-loader-input {
+  width: 100%;
+}
+
+.file-loader-button, .file-loader-input::-webkit-file-upload-button {
+  background: transparent;
+  border: 1px solid #ffffff;
+  padding: 8px 36px;
+  text-transform: uppercase;
+  font: 700 14px 'Roboto Condensed', sans-serif;
+  color: #ffffff;
+  letter-spacing: 0.04rem;
+  cursor: pointer;
+  min-height: 36px;
+}
+
+.file-loader-button:hover, .file-loader-input::-webkit-file-upload-button:hover {
+  background: #ffffff;
+  color: #c51a30;
+}
+
+.file-loader-button:active, .file-loader-input::-webkit-file-upload-button:active {
+  transform: scale(0.94);
+}
+
+.file-loader-button-small, .file-loader-input-small::-webkit-file-upload-button {
+  padding: 4px 18px;
+  font: 700 12px 'Roboto Condensed', sans-serif;
+}
+
+.table {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.table::-webkit-scrollbar {
+  width: 4px;
+}
+
+.table::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+.table::-webkit-scrollbar-thumb {
+  background: rgba(34,34,34,1);
+}
+
+table {
+  font: normal 18px 'Roboto Condensed', sans-serif;
+  margin: 16px;
+  border-spacing: 0;
+}
+
+th, td {
+  padding: 4px;
+  min-width: 100px;
+  border: 1px solid;
+}
+

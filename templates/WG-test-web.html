@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>WG-test-web</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='WG-test-web.css') }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="file-loader">
+    <form class="file-loader-form" enctype="multipart/form-data">
+      <p class="file-loader-text">Загрузите текстовый файл</p>
+      <div class="file-loader-inputs">
+        <input class="file-loader-input" type="file" name="text" accept="text/*" multiple required>
+        <button class="file-loader-button" type="submit">Отправить</button>
+      </div>
+    </form>
+  </div>
+  <div class="table"></div>
+
+  <script>
+    $('.file-loader-form').bind('submit', function (event) {
+				event.preventDefault();
+				let formData = new FormData($('.file-loader-form')[0]);
+				$.ajax({
+          url: '/',
+          data: formData,
+          processData: false,
+          contentType: false,
+          type: 'POST',
+          success: function (data) {
+            $('.file-loader').addClass('file-loader-small');
+            $('.file-loader-text').addClass('file-loader-text-small');
+            $('.file-loader-input').addClass('file-loader-input-small');
+            $('.file-loader-button').addClass('file-loader-button-small');
+            let tables = JSON.parse(data)
+            let html = '';
+            tables.forEach(function (table) {
+              html += '<table><caption>' + table[0] + '</caption>';
+              html += '<tr><th>word</th><th>tf</th><th>idf</th></tr>';
+              table[1].forEach(function (word) {
+                html += '<tr><td>' + word[0] + '</td><td>' + word[1] + '</td><td>' + word[2] + '</td></tr>';
+              });
+              html += '</table>';
+            });
+            $('.table').html(html);
+          }
+        });
+			});
+  </script>
+</body>
+
+</html>
